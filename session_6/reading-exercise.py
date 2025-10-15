@@ -115,48 +115,10 @@ for file in alto_files:
             region_types.append(label)
             total_regions += 1
         
-        if
-
-        if label not in regions_summary:
-            regions_summary[label] = {"total_area": 0, "total_token_count": 0, "count": 0}
+        if label in main_regions:
+            main_regions_types += 1
         
-        regions_summary[label]["total_area"] += area
-        regions_summary[label]["total_token_count"] += token_count
-        regions_summary[label]["count"] += 1
+        if label in marginal_region:
+            marginal_region_types += 1
 
-
-summary_list = []
-for region in regions_summary:
-    data = regions_summary[region]
-    summary_list.append({
-        "region_name": region,
-        "total_area": data["total_area"],
-        "total_token_count": data["total_token_count"],
-        "count": data["count"]
-    })
-
-# 3. Finally, loop through the list and print out each region's summary data
-total_regions = 0
-region_types = 0
-for summary in summary_list:
-
-    # Get the data we need to print
-    region_name = summary["region_name"]
-    total_area = summary["total_area"]
-    total_token_count = summary["total_token_count"]
-    count = summary["count"]
-
-    # Print the data nicely
-
-    print("Region Summary:", region_name)
-    print("Total Area:", total_area)
-    print("Total Token Count:", total_token_count)
-    print("Count:", count)
-    print("----\n")
-    
-    total_regions += summary["count"]
-    region_types += 1
-
-
-print(total_regions, "regions found in total across all files.")
-print(region_types, "different region types found.")
+   
