@@ -10,7 +10,7 @@ import re
 
 # Functions to be used - do not worry about normalise_utf - that is a function that is used by error_rate
 
-def normalise_utf(reference, hypothesis, normalisation_table ={}):
+def normalise_utf(reference, hypothesis, normalisation_table = {}):
     """Normalise cases where a mixture of Persian and Urdu keyboard has been
     used to one Persian variant
     Used to reduce exagerated error rates
