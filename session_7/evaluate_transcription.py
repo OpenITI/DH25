@@ -9,24 +9,34 @@ An example with two lines of text has been provided.
 
 Start by running the code to see the output, then proceed with the exercises.
 
-Exercise 1: Check the error rate of your own manual transcription:
-a. Export the `instructors_correction` and `students_correction` transcription layers
-for the page in which you corrected the transcription in eScriptorium
-(export as datatype TEXT)
-b. Save the instructors_correction layer in this folder as "groundtruth.txt"
-c. Save the students_correction layer in this folder as "student.txt"
-d. in this script, load both text files
-e. calculate the error rate between the ground truth and transcription.
+Exercise 1: Check the error rate of one manual transcription:
+a. Specify the paths to a page of ground truth and its correspond page for one of the models
+b. Open the files and read them as strings
+c. Calculate the cer and wer for the pair using the error_rate function
+d. Print the cer and wer
 
-Exercise 2: Compare the error rates of different automatic transcription:
-a. create a subfolder in this folder called with your name:
-b. Export all of the following transcription layers for your page:
-  - `all_arabic_scripts`
-  - `apt20221130`
-  - `gen2-print-n7m5-union-ft_best`
-  - `39_from_pretrain_2_best_urdu`
-c. In your script, use a loop to compare the error rates
-   of each of these automatic transcriptions with the ground truth.
+Exercise 2: Create a nested loop that builds file paths for all of the pages for each of the models:
+a. Write a loop that loops through all of the folders in the model_transcriptions directory, creates a path to
+the folder for each model and prints the path
+b. Write a nested loop that loops through each text file within the folder for each model, create a path to each text file
+and print the path to the text file
+c. Within the nested loop, create a path to the ground_truth file (it will have the same text file name, but it will be
+in the manual_transcriptions/instructors_correction folder), and print that path.
+Note: to create the paths, use an f-string.
+
+Exercise 3: Calculate cer and wer for each page:
+Add lines of code to the nested for loop created for exercise 2, so that it does the following:
+a. Opens the text files (for both the model and the ground truth).
+b. Compares those texts using error_rate.
+c. Using an f-string prints the name of the model folder and text filename and the cer and wer rates for that page.
+
+Exercise 4: (Bonus exercise - not in class) Calculate the mean cer and wer for each model, for each text:
+In the session_7 there are folders labelled 1940 and Two - in each of these folders we have the different models' results
+for the pages in the two different books that we have worked on. Update your script to do the following:
+a. Calculate the error rates for each book separately.
+b. Append the error rates for each page for each book and model to a list.
+c. Use that list to calculate a mean error rate for each for model for each book.
+d. Use those calculations to decide which transcription model is best for each book.
 """
 
 import numpy as np
